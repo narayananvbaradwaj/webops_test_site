@@ -16,11 +16,12 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
   test "valid register information" do
     get register_path
     assert_difference 'User.count', 1 do
-      post_via_redirect users_path, user: { roll:                  "ff11f111",
+      post_via_redirect users_path, user: { roll:                  "ff11f211",
                                             password:              "foobar",
                                             password_confirmation: "foobar" }
     end
     assert_template 'users/show'
     assert_not flash.empty?
+    assert is_logged_in?
   end
 end

@@ -1,2 +1,4 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-# empty
+test_user:
+  roll: ff11f111
+  password_digest: <%= User.digest('password') %>
