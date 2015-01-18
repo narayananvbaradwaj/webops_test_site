@@ -2,7 +2,7 @@ require 'test_helper'
 
 class StaticPagesControllerTest < ActionController::TestCase
   def setup
-    @base_title = "WebOps Club IITM"
+    @base_title = "The WebOps Club"
   end
   
   test "should get home" do
