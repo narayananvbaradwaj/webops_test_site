@@ -1,9 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Roll:</strong>
-  <%= @user.roll %>
-</p>
+<h1><%= @user.roll.upcase! %></h1>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
