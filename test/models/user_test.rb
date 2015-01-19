@@ -2,7 +2,7 @@ require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
   def setup
-    @user = User.new(roll: "mm12b037", password: 'webops', password_confirmation: 'webops')
+    @user = users(:Abhishek)
   end
 
   test 'should be valid' do
@@ -49,7 +49,7 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.valid?
   end
 
-  test "email addresses should be saved as lower-case" do
+  test "roll should be saved as lower-case" do
     mixed_case_roll = "Mm12B037"
     @user.roll = mixed_case_roll
     @user.save

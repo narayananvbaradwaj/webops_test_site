@@ -1,4 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-test_user:
-  roll: ff11f111
+Abhishek:
+  roll: mm12b037
   password_digest: <%= User.digest('password') %>
+  admin: true
+
+<% 9.times do |n| %>
+test_user_<%= n %>:
+  roll: <%= "ff11f12#{n}" %>
+  password_digest: <%= User.digest('password') %>
+<% end %>
