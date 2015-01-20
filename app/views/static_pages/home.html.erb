@@ -1,3 +1,8 @@
-<h1>StaticPages#home</h1>
-<p>Find me in app/views/static_pages/home.html.erb</p>
-<%= link_to "Register now!", register_path, class: "btn btn-primary" %>
+<div class="row">
+    <img class="col-md-12" src="/assets/logo_black.png">
+</div>
+<% if not logged_in? %>
+    <div class="row">
+        <%= link_to "Register now!", register_path, class: "btn btn-default btn-lg col-md-4 col-md-offset-4" %>
+    </div>
+<% end %>
