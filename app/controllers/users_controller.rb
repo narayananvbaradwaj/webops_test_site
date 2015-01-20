@@ -32,9 +32,14 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       # Handle a successful save.
-      log_in @user
-      flash[:success] = "Welcome to the WebOps Club!"
-      redirect_to @user
+      # Method 1---
+      # log_in @user
+      # flash[:success] = "Welcome to the WebOps Club!"
+      # redirect_to @user
+      # Method 2---
+      UserMailer.account_activation(@user).deliver_now
+      flash[:info] = "Please check your smail to activate your account."
+      redirect_to root_url
     else
       render 'new'
     end
