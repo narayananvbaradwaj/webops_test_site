@@ -1,6 +1,9 @@
-<p id="notice"><%= notice %></p>
-
 <h1><%= @user.roll.upcase! %></h1>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<div class="row">
+    <h2>Skills</h2>
+    <ul>
+        <% @user.webops_skill.each do |skill| %>
+        <li><%= skill %></li>
+        <% end %>
+    </ul>
+</div>
