@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
-  before_action :correct_user,   only: [:edit, :update]
+  before_action :correct_user,   only: [:edit, :update, :update_webops_skill]
   before_action :admin_user,     only: :destroy
 
   # GET /users
@@ -55,6 +55,13 @@ class UsersController < ApplicationController
     else
       render 'edit'
     end
+  end
+  # POST /users/1/update_webops_skill
+  def update_webops_skill
+    @user = User.find(params[:id])
+    skill = params[:skill]
+    update_and_save_webops_skill(skill)
+    flash[:success] = "Successfully added #{skill}"
   end
 
   # DELETE /users/1
