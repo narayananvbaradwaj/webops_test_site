@@ -37,7 +37,7 @@ class UsersController < ApplicationController
       # flash[:success] = "Welcome to the WebOps Club!"
       # redirect_to @user
       # Method 2---
-      UserMailer.account_activation(@user).deliver_now
+      @user.send_activation_email
       flash[:info] = "Please check your smail to activate your account."
       redirect_to root_url
     else
