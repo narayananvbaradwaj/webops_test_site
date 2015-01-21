@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
                         uniqueness: { case_sensitive: false }
     has_secure_password
     validates :password, length: { minimum: 6 }, allow_blank: true
+    validates :name, length: { maximum: 50 }
 
     # smail = "#{:roll}@smail.iitm.ac.in"
     class << self

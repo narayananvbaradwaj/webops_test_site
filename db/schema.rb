@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150121141539) do
+ActiveRecord::Schema.define(version: 20150121192209) do
 
   create_table "microposts", force: :cascade do |t|
     t.text     "content"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20150121141539) do
     t.boolean  "activated",         default: false
     t.datetime "activated_at"
     t.text     "webops_skill"
+    t.string   "name"
   end
 
   add_index "users", ["roll"], name: "index_users_on_roll", unique: true
