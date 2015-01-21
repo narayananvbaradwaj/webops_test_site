@@ -59,4 +59,16 @@ class UserTest < ActiveSupport::TestCase
   test "authenticated? should return false for a user with nil digest" do
     assert_not @user.authenticated?(:remember, '')
   end
+
+  test "name should be of maximum length 50" do
+    @user.roll = "ff11f111"
+    @user.name = "a" * 51
+    assert_not @user.valid?
+  end
+
+  test "name length less than 50 should be valid" do
+    @user.roll = "ff11f111"
+    @user.name = "a" * 50
+    assert @user.valid?
+  end
 end

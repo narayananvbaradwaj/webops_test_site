@@ -24,7 +24,7 @@ gem 'bootstrap-sass', '3.3.1.0'
 # Use ActiveModel has_secure_password
 gem 'bcrypt',         '3.1.9'
 gem 'faker',          '1.4.3'
-
+gem 'jquery-datatables-rails', '3.1.1'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
