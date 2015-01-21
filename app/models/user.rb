@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
     attr_accessor :remember_token, :activation_token
-
+    serialize :webops_skill, Array
     before_save :downcase_roll
     before_create :create_activation_digest
     VALID_ROLL_REGEX = /\A[a-zA-Z][a-zA-Z]\d\d[a-z]\d\d\d/i
@@ -58,6 +58,13 @@ class User < ActiveRecord::Base
     # Sends activation email.
     def send_activation_email
         UserMailer.account_activation(self).deliver_now
+    end
+
+    # update webops_skill
+    def update_webops_skill ( skill )
+        ws = self.webops_skill
+        ws << skill
+        update_attribute(:webops_skill, ws)
     end
     private
         # Converts roll to all lower-case.
