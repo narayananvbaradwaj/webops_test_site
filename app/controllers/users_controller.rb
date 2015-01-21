@@ -57,11 +57,12 @@ class UsersController < ApplicationController
     end
   end
   # POST /users/1/update_webops_skill
-  def update_webops_skill
+  def add_webops_skill
     @user = User.find(params[:id])
     skill = params[:skill]
-    update_and_save_webops_skill(skill)
+    @user.update_and_save_webops_skill(skill)
     flash[:success] = "Successfully added #{skill}"
+    redirect_to @user
   end
 
   # DELETE /users/1

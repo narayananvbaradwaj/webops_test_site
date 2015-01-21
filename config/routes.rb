@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   resources :users
   get 'register'  => 'users#new'
+  post 'users/:id/add_webops_skill/:skill' => 'users#add_webops_skill'
 
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'

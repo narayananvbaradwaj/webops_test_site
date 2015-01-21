@@ -63,6 +63,7 @@ class User < ActiveRecord::Base
 
     def update_and_save_webops_skill( skill )
         if not skill.empty?
+            skill.downcase!
             self.webops_skill << skill
             self.save
         end
