@@ -1,0 +1,31 @@
+<% provide(:title, 'All Skills') %>
+<%= link_to "Add a skill", new_skill_path, class: "btn btn-info pull-right" %>
+<h1>All Skills</h1>
+<table class="table table-bordered table-striped" id="allSkillsTable">
+  <thead>
+    <th>NAME</th>
+    <th>LINK</th>
+    <th>IMAGE NAME</th>
+    <th>CATEGORY</th>
+    <th>SUB-CATEGORY</th>
+  </thead>
+  <tbody>
+    <% @skills.each do |skill| %>
+      <tr>
+        <td><%= link_to skill.name.upcase!, skill %></td>
+        <td><%= link_to skill.link, skill.link, target: "_blank" %></td>
+        <td><%= image_tag "skills/#{skill.image_name}", height: "50px" %></td>
+        <td><%= skill.category.capitalize! %></td>
+        <td><%= skill.sub_category %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<script>
+  $(document).ready(function(){
+    $('#allSkillsTable').DataTable({
+      'pagingType': 'simple',
+      'dom': "<'row'<'col-md-6'l><'col-md-6'f>><'row'<'col-md-6'i><'col-md-6'p>r>t<'row'<'col-md-6'l><'col-md-6'p>>",
+    });
+  });
+</script>

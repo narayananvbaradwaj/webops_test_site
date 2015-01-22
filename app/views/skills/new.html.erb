@@ -1,0 +1,11 @@
+<h1 class="text-center">Add a new skill</h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@skill, html: {class: 'form'}) do |f|%>
+      <%= render 'fields', f: f %>
+      <div class="form-group">
+        <%= f.submit "Create Skill", class: "btn btn-primary form-control" %>
+      </div>
+    <% end %>
+  </div>
+</div>
